@@ -1,0 +1,160 @@
+/* CSS for Update Profile Page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.fieldset-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    max-width: 500px;
+}
+
+.fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.title {
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 5px;
+    color: rgb(18,32,73);
+    justify-content: center;
+    display: flex;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-label {
+    font-size: 14px;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.input-group__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    max-width: 478px;
+}
+
+.eye-icon {
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 530px;
+    top: 537px;
+    transform: translateY(-50%);
+    color: rgb(18,32,73);
+}
+
+/*
+.eye-icon-confrm {
+    font-size: 18px;
+    cursor: pointer;
+    position: absolute;
+    right: 500px;
+    top: 490px;
+    transform: translateY(-50%);
+    color: rgb(18,32,73);
+} */
+
+
+.eye-icon:hover {
+    color: rgb(13 , 137 , 246);
+}
+.mybtn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.mybtn:hover {
+    background-color: #0056b3;
+}
+
+/* Additional styles can be added for further customization */
+
+
+    /* Style for success alert */
+    .alert.alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 7px 9px;
+        margin-top: 90px ;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Style for error alert */
+    .alert.alert-danger {
+        background-color: #f5dadc;
+        border-color: #f5c6cb;
+        color: red;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 7px 9px;
+        margin-top: 90px ;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        10%, 30%, 50%, 70%, 90% {
+            transform: translateX(-5px);
+        }
+        20%, 40%, 60%, 80% {
+            transform: translateX(5px);
+        }
+    }
+
+    /* Apply the shake animation to the alert */
+    .alert.shake {
+        animation: shake 0.3s ease-in-out;
+    }
+
+.logout {
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logout-btn {
+    max-width: 100px;
+    margin-bottom: 20px;
+}

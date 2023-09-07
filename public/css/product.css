@@ -1,0 +1,269 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#search {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+}
+
+.products-cont {
+    margin-top: 120px ;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    /* max-width: 100%; */
+    /* display: inline-flex;
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+.products-cont-no-mar {
+    margin-top: 20px ;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    /* max-width: 100%; */
+    /* display: inline-flex;
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+.item-card {
+    margin: 20px;
+    /* border: 1px solid #e0e0e0; */
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out;
+    width: 300px;
+    height: 440px;
+    overflow: hidden;
+}
+
+.item-card:hover {
+    transform: scale(1.03);
+}
+
+.card-img {
+    width: 100%;
+    height: 55%;
+    object-fit: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.card-content {
+    padding: 0 15px;
+}
+
+.card-title {
+    color: rgb(18,32,73);
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.card-desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.4;
+    height: 60px;
+    overflow: hidden;
+}
+
+.price-and-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.card-price {
+    /* color: #f06292; */
+    color: rgb(13,137,246);
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-price-err {
+    /* color: #f06292; */
+    color: grey;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-price-add {
+    /* color: #f06292; */
+    color: green;
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.err {
+    color: red;
+
+}
+
+.button-container {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.mybtn {
+    background-color: rgb(13,137,246);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.mybtn-add {
+    background-color: green;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.mybtn-add:hover {
+    background-color: rgb(2, 66, 2);
+}
+
+.mybtn:hover {
+    /* background-color: rgb(10,17,39); */
+    background-color: rgb(18,32,73);
+}
+
+
+/* .item-card {
+    margin: 20px 50px;
+    border: 1px solid rgb(13 , 137 , 246);
+    width: 300px;
+    height: 430px;
+    border-radius: 15px;
+}
+
+.card-img {
+    width: 100%;
+    height: 45%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-title {
+    color: rgb(18, 32, 73);
+    text-align: center;
+    font-size: larger;
+    font-weight: bold;
+    margin-bottom: 0px;
+}
+
+.card-text {
+    width: 100%;
+    height: 55%;
+    color: rgb(18, 32, 73);
+    text-align: center;
+    font-size: large;
+    margin-top: 0px;
+}
+
+.card-desc {
+
+    padding: 0px 5px;
+    max-height: 70px;
+    color: rgb(18, 32, 73);
+    font-weight: 400;
+
+}
+
+.card-price {
+
+    padding: 0px 0px;
+    color: rgb(18, 32, 73);
+    font-style: italic;
+    font-weight: 500;
+    margin: 7px 0px;
+
+}
+
+.mybtn {
+    margin: 0 20px;
+    padding: 5px;
+    width: 130px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: large;
+    color: rgb(18, 32, 73) ;
+    background-color: rgb(13 , 137 , 246);
+
+}
+
+.mybtn:hover {
+    cursor: pointer;
+    background-color: rgb(18, 32, 73);
+    color: white;
+    transition: color 0.3s ease;
+} */
+
+
+    /* Style for success alert */
+    .alert.alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 7px 9px;
+        margin-top: 90px ;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Style for error alert */
+    .alert.alert-danger {
+        background-color: #f5dadc;
+        border-color: #f5c6cb;
+        color: red;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 7px 9px;
+        margin-top: 90px ;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        10%, 30%, 50%, 70%, 90% {
+            transform: translateX(-5px);
+        }
+        20%, 40%, 60%, 80% {
+            transform: translateX(5px);
+        }
+    }
+
+    /* Apply the shake animation to the alert */
+    .alert.shake {
+        animation: shake 0.3s ease-in-out;
+    }
+
+
+
