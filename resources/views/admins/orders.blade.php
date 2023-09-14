@@ -10,7 +10,7 @@
     <title>Just Click</title>
 </head>
 <body>
-    @include('includes.header')
+    @include('includes.aheader')
 
     @if(session('success'))
         <div class="alert alert-success">
@@ -31,6 +31,7 @@
             <table class="mytbl">
                 <thead>
                     <th>Order ID</th>
+                    <th>User ID</th>
                     <th>Product Image</th>
                     <th>Product Price</th>
                     <th>Quantity</th>
@@ -48,13 +49,13 @@
                         <tr>
                             @if ($loop->first)
                                 <td rowspan="{{ $rowspan }}">{{$order->id}}</td>
+                                <td rowspan="{{ $rowspan }}">{{$order->user_id}}</td>
                             @endif
                             <td>
-                                <img src="images/{{ $product->product->image }}" width="50px" height="50px" alt="">
+                                <img src="/images/{{ $product->product->image }}" width="50px" height="50px" alt="">
                             </td>
                             <td>${{$product->unit_price}}</td>
                             <td>{{$product->quantity}}</td>
-                            {{-- <td>${{$product->product->sell_price * $product->quantity}}</td> --}}
                             <td>${{$product->unit_price * $product->quantity}}</td>
                             @if ($loop->first)
                                 <td rowspan="{{ $rowspan }}">${{ $order->total_amount }}</td>
@@ -76,14 +77,15 @@
         <div class="products-cont">
             @foreach ($orders_items as $oitem)
                     <div class="item-card">
-                        <img src="images/{{ $oitem->product->image }}" alt="" class="card-img">
+                        <img src="/images/{{ $oitem->product->image }}" alt="" class="card-img">
                         <div class="card-content">
                             <p class="card-title">{{ $oitem->product->name }}</p>
                             <p class="card-desc">{{ $oitem->product->desc }}</p>
                             <p class="card-title">Order Details : </p>
                             <div class="price-and-btn">
                                 {{-- <p class="card-price-err">${{ $oitem->product->sell_price }}</p> --}}
-                                <p class="card-desc">Order No : {{ $oitem->order_id }}</p>
+                                <p class="card-desc">ID : {{ $oitem->order_id }}</p>
+                                <p class="card-desc">User ID : {{ $oitem->order->user_id }}</p>
                                 <p class="card-desc">Qty : {{ $oitem->quantity }} * ${{ $oitem->unit_price }} =
                                     ${{$oitem->quantity * $oitem->unit_price}} </p>
                             </div>

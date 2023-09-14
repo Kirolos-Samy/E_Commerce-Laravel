@@ -22,4 +22,10 @@ class Product extends Model
     // function order(){
     //     return $this->hasMany(OrderProduct::class);
     // }
+    
+    public function getIsActiveAttribute()
+    {
+        return $this->attributes['active'] === 1;
+    }
+
 }

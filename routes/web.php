@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -82,8 +83,14 @@ Route::get('/',[ProductController::class,'index'])->name('products.index');
 
 Route::get('/admin',[AdminController::class,'index'])->name('admin.index');
 
+Route::get('/admin/orders',[AdminController::class,'orders'])->name('admin.orders');
+
 // Show view to add new product
 Route::view('/products/create','products.create')->name('product.create');
+
+// Add new Product
+Route::post('/products/store',[ProductController::class,'store'])->name('product.store');
+
 
 // Get data of product to Update
 Route::get('/products/edit/{id}',[ProductController::class,'edit'])->name('product.edit');
@@ -91,9 +98,14 @@ Route::get('/products/edit/{id}',[ProductController::class,'edit'])->name('produ
 // Update Product
 Route::put('/products/update/{id}',[ProductController::class,'update'])->name('product.update');
 
+Route::put('/products/deact/{id}',[ProductController::class,'deactivate'])->name('product.deactivate');
+
+Route::put('/products/act/{id}',[ProductController::class,'activate'])->name('product.activate');
+
+
 Route::put('/products/rcart/{id}',[ProductController::class,'rcart'])->name('products.rcart');
 
-// Route::get('/search',[ProductController::class,'search'])->name('products.search');
+Route::get('/products/search',[ProductController::class,'search'])->name('products.search');
 
 
 /////////////
@@ -110,3 +122,30 @@ Route::put('/orders/rcart/{id}',[CartController::class,'rcart'])->name('cart.rca
 Route::post('/orders/add',[OrderController::class,'store'])->name('orders.add');
 
 
+Route::get('/login', function () {
+    return view('accounts/login');
+})->name('login');
+
+/////////////////
+// Categories //
+
+// Show view to add new product
+Route::view('/categories/create','Categories.create')->name('category.create');
+
+// Show All Categories
+Route::get('/categories',[CategoryController::class,'index'])->name('category.index');
+
+// Show 1 Category
+Route::get('/categorys/{id}',[CategoryController::class,'show'])->name('category.show');
+
+// Get data of category to Update
+Route::get('/categories/update/{id}',[CategoryController::class,'update'])->name('category.update');
+
+// Edit category
+Route::put('/categories/edit/{id}',[CategoryController::class,'edit'])->name('category.edit');
+
+// Delete Category
+Route::delete('/categories/delete/{id}',[CategoryController::class,'destroy'])->name('category.destroy');
+
+// Add new Product
+Route::post('/categories/store',[CategoryController::class,'store'])->name('category.store');

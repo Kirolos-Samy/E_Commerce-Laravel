@@ -1,0 +1,129 @@
+*{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Style for the table container */
+.tbl-cont {
+    margin: 20px 20px 10px 20px;
+}
+
+/* Style for the table */
+.mytbl {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+}
+
+/* Style for table headers */
+.mytbl th {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Style for table data cells */
+.mytbl td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+}
+
+/* Style for table rows (alternate row colors) */
+.mytbl tbody tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style for table hover effect */
+.mytbl tbody tr:hover {
+    background-color: #e0e0e0;
+}
+
+.mybtn {
+    background-color: green;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 70px;
+}
+
+.mybtn:hover {
+    background-color: rgb(2, 66, 2);
+}
+
+.mybtn-lrg {
+    background-color: rgb(13,137,246);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.mybtn-lrg:hover {
+    /* background-color: rgb(10,17,39); */
+    background-color: rgb(18,32,73);
+}
+
+.products-cont {
+    margin-top: 110px ;
+    justify-content: center; /* Horizontally center items */
+    align-items: center; /* Vertically center items */
+    /* max-width: 100%; */
+    /* display: inline-flex;
+    /* width: 100%; */
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+}
+
+    /* Style for success alert */
+    .alert.alert-success {
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+        color: #155724;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 7px 9px;
+        margin-top: 90px ;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Style for error alert */
+    .alert.alert-danger {
+        background-color: #f5dadc;
+        border-color: #f5c6cb;
+        color: red;
+        width: fit-content;
+        border-radius: 25px;
+        padding: 7px 9px;
+        margin-top: 90px ;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    @keyframes shake {
+        0%, 100% {
+            transform: translateX(0);
+        }
+        10%, 30%, 50%, 70%, 90% {
+            transform: translateX(-5px);
+        }
+        20%, 40%, 60%, 80% {
+            transform: translateX(5px);
+        }
+    }
+
+    /* Apply the shake animation to the alert */
+    .alert.shake {
+        animation: shake 0.3s ease-in-out;
+    }

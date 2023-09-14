@@ -20,7 +20,7 @@
         <ul class="navbar-links">
             <li><a href="/admin">Products</a></li>
             <li><a href="/categories">Categories</a></li>
-            <li><a href="/orders">Orders</a></li>
+            <li><a href="/admin/orders">Orders</a></li>
             <li><a href="/account">Account</a></li>
         </ul>
         <div class="theme-toggle" id="theme-toggle">

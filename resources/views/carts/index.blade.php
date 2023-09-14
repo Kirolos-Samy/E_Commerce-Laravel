@@ -35,10 +35,12 @@
         <div class="products-cont">
             @foreach ($cart_items as $item)
             <div class="item-card">
-                <div class="checkbox-container">
-                    <input type="checkbox" name="selected_items[]" value="{{ $item->product->id }}" id="myCheckbox{{ $item->product->id }}" class="checkbox-input">
-                    <label for="myCheckbox{{ $item->product->id }}" class="checkbox-label"></label>
-                </div>
+                @if ($item->product->quantity > 0)
+                    <div class="checkbox-container">
+                        <input type="checkbox" name="selected_items[]" value="{{ $item->product->id }}" id="myCheckbox{{ $item->product->id }}" class="checkbox-input">
+                        <label for="myCheckbox{{ $item->product->id }}" class="checkbox-label"></label>
+                    </div>
+                @endif
                 <img src="images/{{ $item->product->image }}" alt="" class="card-img">
                 <div class="card-content">
                     <p class="card-title">{{ $item->product->name }}</p>

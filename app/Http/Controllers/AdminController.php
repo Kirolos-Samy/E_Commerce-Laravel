@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Order_Product;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -15,6 +17,13 @@ class AdminController extends Controller
     {
         $products = Product::get();
         return view('admins.index' , compact('products'));
+    }
+
+    public function orders()
+    {
+        $orders = Order::get();
+        $orders_items = Order_Product::get();
+        return view('admins.orders' , compact('orders' ,'orders_items'));
     }
 
     /**

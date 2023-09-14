@@ -14,10 +14,12 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::get();
+        $products = Product::where('active', 1)->get(); // 1 represents active
         $cart_items = Cart::where('user_id', session('user_id'))->get();
         return view('products.index' , compact('products', 'cart_items'));
     }
+
+
 
     public function cart($product_id)
     {
@@ -53,7 +55,45 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'image2' => 'image|mimes:jpeg,png,jpg,gif'
+        ]);
+
+        // dd($request);
+
+        // Split the string by dot character (.)
+        // $parts = explode(".", $request->image);
+
+        // Get the last part of the array, which is the file extension
+        // $ext = end($parts);
+
+        $imageName = time().'.'.$request->image2->extension();
+        // $imageName = time().'.'.$ext;
+
+        // $imageName = "aa";
+
+        // dd($imageName);
+
+        $request->image2->move(public_path('images'), $imageName);
+
+
+
+        Product::create([
+            'name' => $request->name,
+            'desc' => $request->desc,
+            'cost_price' => $request->cost_price,
+            'sell_price' => $request->sell_price,
+            'quantity' => $request->quantity,
+            'tags' => $request->tags,
+            'image' => $imageName,
+            'category_id' => $request->category_id,
+        ]);
+
+        return redirect()->route('admin.index');
+
+        // Product::create($request->all());
+        // return redirect()->route('admin.index');
     }
 
     /**
@@ -94,10 +134,37 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function deactivate($id)
     {
-        //
+        $product = Product::find($id);
+
+        if (!$product) {
+            return redirect()->route('admin.index')->with('error', 'Product not found.');
+        }
+
+        // Set the product as inactive (0)
+        $product->active = 0;
+        $product->save();
+
+        return redirect()->route('admin.index')->with('success', 'Product deactivated successfully.');
     }
+
+    public function activate($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return redirect()->route('admin.index')->with('error', 'Product not found.');
+        }
+
+        // Set the product as inactive (0)
+        $product->active = 1;
+        $product->save();
+
+        return redirect()->route('admin.index')->with('success', 'Product activated successfully.');
+    }
+
+
 
     // public function search(Request $request)
     // {
@@ -110,5 +177,25 @@ class ProductController extends Controller
 
     //     return response()->json($products);
     // }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Perform a search query on your products table based on the user's input
+        $products = Product::where(function ($productQuery) use ($query) {
+            $productQuery->where('name', 'LIKE', "%$query%")
+                ->orWhere('tags', 'LIKE', "%$query%");
+        })
+        ->where('active', 1) // 1 represents active
+        ->get();
+
+        $cart_items = Cart::where('user_id', session('user_id'))->get();
+
+
+        // Pass the search results to a view
+        return view('products.index', compact('products', 'cart_items' , 'query'));
+    }
+
 
 }

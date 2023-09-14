@@ -9,7 +9,12 @@
     <title>Just Click</title>
 </head>
 <body>
-    @include('includes.header')
+
+    @if(session('role_id') == 2)
+        @include('includes.header')
+    @else
+        @include('includes.aheader')
+    @endif
 
     @if(session('success'))
         <div class="alert alert-success">
@@ -70,35 +75,33 @@
 
         {{-- Registeration Form --}}
 
+
         <form action="{{route('account.store')}}" method="post" id="register-form" class="form">
-        {{-- <form action="" method="post" id="register-form" class="form"> --}}
             @csrf
             <div class="fieldset-container">
 
                 <fieldset class="fieldset">
 
-                <!-- Registration form inputs -->
                 <label for="" class="title">Register</label>
                 <br> <br>
 
                 <div class="input-group">
-                    <input type="text" id="first" name="first_name" class="input-group__input" value="{{ old('first_name') }}" required>
+                    <input type="text" id="first" name="first_name" class="input-group__input" required>
                     <label for="first" id="firstlabel" class="input-group__label">First Name</label>
                 </div>
-                {{-- <p id="first-name-error" class="error-message"></p> --}}
                 <br>
                 <div class="input-group">
-                    <input type="text" id="last" name="last_name" class="input-group__input" value="{{ old('last_name') }}" required>
+                    <input type="text" id="last" name="last_name" class="input-group__input" required>
                     <label for="last" id="lastlabel" class="input-group__label">Last Name</label>
                 </div>
                 <br>
                 <div class="input-group">
-                    <input type="email" id="remail" name="email" class="input-group__input" value="{{ old('email') }}"  required>
+                    <input type="email" id="remail" name="email" class="input-group__input" required>
                     <label for="remail" id="emaillabel" class="input-group__label">Email</label>
                 </div>
                 <br>
                 <div class="input-group">
-                    <input type="password" name="password" id="rpassword" class="input-group__input" value="{{ old('password') }}" required>
+                    <input type="password" name="password" id="rpassword" class="input-group__input" required>
                     <label for="rpassword" id="passlabel" class="input-group__label">Password</label>
                     <span id="togglePassword" class="eye-icon">&#128065;</span>
                 </div>

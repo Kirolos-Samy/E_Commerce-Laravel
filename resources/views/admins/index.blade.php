@@ -46,9 +46,23 @@
                         <p class="desc">Sell Price : ${{ $product->sell_price }}</p>
                     </div>
                     <div class="center">
-                    <form action="{{ route('product.edit', $product->id) }}">
-                                <button class="mybtn">Edit</button>
-                    </form>
+                        <form action="{{ route('product.edit', $product->id) }}">
+                                    <button class="mybtn">Edit</button>
+                        </form>
+                        {{-- @if ($product->where('active', 1)) --}}
+                        @if ($product->active)
+                            <form action="{{ route('product.deactivate', $product->id) }}" method="POST">
+                                @method('PUT')
+                                @csrf
+                                <button class="mybtn-err">Deactivate</button>
+                            </form>
+                        @else
+                            <form action="{{ route('product.activate', $product->id) }}" method="POST">
+                                @method('PUT')
+                                @csrf
+                                <button class="mybtn-add">Activate</button>
+                            </form>
+                        @endif
                     </div>
                 </div>
             </div>

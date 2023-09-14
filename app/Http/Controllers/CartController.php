@@ -16,7 +16,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        $cart_items = Cart::where('user_id', session('user_id'))->get();
+        $cart_items = Cart::where('user_id', session('user_id'))->get()->filter(function ($cartItem) {
+            return $cartItem->product->active == 1;
+        });
         $orders = Order::where('user_id', session('user_id'))->get();
         $orders_items = Order_Product::whereHas('order', function ($query) {
             $query->where('user_id', session('user_id'));})->get();

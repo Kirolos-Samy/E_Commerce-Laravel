@@ -11,7 +11,11 @@
 </head>
 <body>
 
-@include('includes.header')
+    @if(session('role_id') == 2)
+        @include('includes.header')
+    @else
+        @include('includes.aheader')
+    @endif
 
 @if(session('success'))
 <div class="alert alert-success">

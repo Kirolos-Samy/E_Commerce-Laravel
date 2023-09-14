@@ -41,7 +41,8 @@ class OrderController extends Controller
 
     // Create a new order
     $order = new Order();
-    $order->user_id = auth()->id(); // Assuming you have authentication set up
+    // $order->user_id = auth()->id(); // Assuming you have authentication set up
+    $order->user_id = session('user_id'); // Assuming you have authentication set up
     $order->total_amount = 0; // You can update this later based on the items
     $order->shipping = 0; // 5% shipping cost, adjust as needed
     $order->save();
@@ -59,18 +60,21 @@ class OrderController extends Controller
         $orderItem->order_id = $order->id;
         $orderItem->product_id = $selectedItem;
         $orderItem->quantity = $quantities[$selectedItem]; // Get the corresponding quantity
+        $orderItem->unit_price = $orderItem->product->sell_price;
         $orderItem->save();
 
         // Calculate the total amount for the order based on each item's price and quantity
         $product = Product::find($selectedItem);
-        $totalAmount += $product->sell_price * $quantities[$selectedItem];
+        // $totalAmount += $product->sell_price * $quantities[$selectedItem];
+        $totalAmount += $orderItem->unit_price * $quantities[$selectedItem];
 
         // Decrease the product's quantity in the products table
         $product->quantity -= $quantities[$selectedItem];
         $product->save();
 
         // Remove the item from the cart
-        $cartItem = Cart::where('user_id', auth()->id())
+        // $cartItem = Cart::where('user_id', auth()->id())
+        $cartItem = Cart::where('user_id', session('user_id'))
             ->where('product_id', $selectedItem)
             ->first();
 

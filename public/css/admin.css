@@ -15,7 +15,7 @@
 }
 
 .center {
-    justify-content: center; /* Horizontally center items */
+    justify-content: space-between; /* Horizontally center items */
     align-items: center; /* Vertically center items */
     display: flex;
     flex-wrap: wrap;
@@ -135,6 +135,10 @@
     transition: background-color 0.2s ease-in-out;
 }
 
+.mybtn:hover {
+    /* background-color: rgb(10,17,39); */
+    background-color: rgb(18,32,73);
+}
 .mybtn-add {
     background-color: green;
     color: #fff;
@@ -149,10 +153,37 @@
     background-color: rgb(2, 66, 2);
 }
 
-.mybtn:hover {
-    /* background-color: rgb(10,17,39); */
-    background-color: rgb(18,32,73);
+.mybtn-err {
+    background-color: rgb(255, 65, 65);
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 90px;
 }
+
+.mybtn-err:hover {
+    background-color: rgb(105, 1, 1);
+}
+
+.mybtn-err-l {
+    background-color: rgb(255, 65, 65);
+    color: #fff;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    width: 300px;
+    margin: 0 20px;
+}
+
+.mybtn-err-l:hover {
+    background-color: rgb(105, 1, 1);
+}
+
 
 
 /* .item-card {
